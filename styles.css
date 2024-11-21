@@ -37,7 +37,7 @@ body {
   height: 100px;
   display: block;
   margin: 0 auto;
-  font-size: 5rem;
+  font-size: 4.5rem;
 }
 
 /* Wrapper pour le texte */
@@ -55,7 +55,7 @@ body {
   overflow: hidden;
   border-right: 3px solid;
   font-family: monospace;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 
 .socials {
@@ -105,7 +105,7 @@ body {
 }
 
 .container img {
-  width: 3.5rem;
+  width: 3rem;
 }
 
 /* Animation de saisie pour le texte */
