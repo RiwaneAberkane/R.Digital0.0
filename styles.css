@@ -22,7 +22,7 @@ body {
 #logo {
   opacity: 0;
   transform: translateY(-100%);
-  transition: opacity 1.5s ease, transform 1.5s ease;
+  transition: opacity 1s ease 1.5s, transform 1s ease 1.5s;
   margin-top: 30px;
 }
 
