@@ -1,69 +1,163 @@
+/* Style global pour le body */
 body {
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #ffffff;
+  background-color: #292121f5;
   font-family: 'Montserrat', sans-serif;
-  color: #333;
+  color: #e6cdcd;
 }
 
 .container {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  color: #e6cdcd;
+}
+
+/* Animation pour le logo */
+#logo {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+  margin-top: 30px;
+}
+
+#logo.show-logo {
+  opacity: 1;
+  transform: translateY(0);
+  /* Le logo va arriver à sa position d'origine */
 }
 
 #logo-svg {
-  width: auto;
+  width: 550px;
   height: 100px;
   display: block;
   margin: 0 auto;
+  font-size: 5rem;
 }
 
-#logo-text {
-  stroke-dasharray: 500;
-  /* Augmenter cette valeur pour couvrir toute la longueur du texte */
-  stroke-dashoffset: 500;
-  /* Initialement tout caché */
-  animation: write 4s forwards ease-in-out;
-  /* Rallonger la durée de l'animation pour un effet plus fluide */
-  font-family: "Great Vibes", cursive;
-  font-size: 3rem;
+/* Wrapper pour le texte */
+.wrapper {
+  display: grid;
+  place-items: center;
 }
 
-.tagline {
-  margin-top: 20px;
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: #555;
+/* Animation de texte */
+.typing-demo {
+  margin: 35px auto 35px;
+  width: 36ch;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 1.8rem;
 }
 
 .socials {
   margin-top: 30px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease 1.5s, transform 1s ease 1.5s;
 }
 
+.socials.show-socials {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Effet de hover sur les icônes de réseaux sociaux */
 .socials a {
+  position: relative;
+  display: inline-block;
   margin: 0 10px;
   text-decoration: none;
   font-weight: 700;
+  transition: transform 0.3s ease;
+}
+
+.socials a:hover img {
+  transform: scale(1.2);
+}
+
+/* Cercle rouge qui apparaît au hover */
+.socials a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: #292121;
+  border-radius: 50%;
+  transition: width 0.3s ease, height 0.3s ease;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.socials a:hover::before {
+  width: 92px;
+  height: 92px;
+}
+
+.container img {
+  width: 3.5rem;
+}
+
+/* Animation de saisie pour le texte */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
 }
 
 
-img {
-  width: 5%;
+/* Ajout de l'animation du logo au départ */
+#logo.show-logo {
+  animation: showLogo 2s forwards;
 }
 
-
-/* Animation de l'écriture */
-@keyframes write {
+@keyframes showLogo {
   0% {
-    stroke-dashoffset: 500;
-    /* Correspond à stroke-dasharray */
+    opacity: 0;
+    transform: translateY(-50px);
   }
 
   100% {
-    stroke-dashoffset: 0;
-    /* Le texte devient visible */
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 605px) {
+  .typing-demo {
+    font-size: 1rem;
+  }
+
+  #logo-svg {
+    width: 350px;
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+    font-size: 2.5em;
+  }
+
+  .container img {
+    width: 2rem;
+  }
+
+  .socials a:hover::before {
+    width: 62px;
+    height: 62px;
   }
 }
