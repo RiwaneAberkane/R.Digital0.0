@@ -70,6 +70,81 @@ body {
   transform: translateY(0);
 }
 
+.home-hero__mouse-scroll-cont {
+  position: absolute;
+  bottom: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mouse {
+  width: 25px;
+  height: 40px;
+  border: 2px solid white;
+  border-radius: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.mouse::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: 50%;
+  opacity: 1;
+  animation: wheel 1.3s infinite;
+  -webkit-animation: wheel 1.3s infinite;
+}
+
+@keyframes wheel {
+  0% {
+      transform: translateX(-50%) translateY(100%);
+      opacity: 1; 
+  }
+  40% {
+      opacity: 1; 
+  }
+  50% {
+      transform: translateX(-50%) translateY(20px);
+      opacity: 0; 
+  }
+  99% {
+      opacity: 0; 
+  }
+  100% {
+      transform: translateX(-50%) translateY(-10px); 
+      opacity: 1; 
+  }
+}
+
+@-webkit-keyframes wheel {
+  0% {
+      transform: translateX(-50%) translateY(100%); 
+      opacity: 1; 
+  }
+  40% {
+      opacity: 1; 
+  }
+  50% {
+      transform: translateX(-50%) translateY(60px); 
+      opacity: 0; 
+  }
+  99% {
+      opacity: 0; 
+  }
+  100% {
+      transform: translateX(-50%) translateY(-10px); 
+      opacity: 1;
+  }
+}
+
+
 /* Effet de hover sur les icônes de réseaux sociaux */
 .socials a {
   position: relative;
@@ -100,8 +175,8 @@ body {
 }
 
 .socials a:hover::before {
-  width: 92px;
-  height: 92px;
+  width: 85px;
+  height: 85px;
 }
 
 .container img {
