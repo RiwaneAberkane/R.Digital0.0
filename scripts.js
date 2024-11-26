@@ -1,7 +1,6 @@
 window.addEventListener("load", () => {
   const typingDemo = document.querySelector(".typing-demo");
   const logo = document.getElementById("logo");
-  let animationPlayed = false; // Ajoutez un flag pour s'assurer que l'animation ne se joue qu'une fois
 
   typingDemo.addEventListener("animationend", () => {
     if (!animationPlayed) {
