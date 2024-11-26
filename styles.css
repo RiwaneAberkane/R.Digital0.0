@@ -2,7 +2,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #292121f5;
+  /* background-color: #292121f5; */
+  background-color: red;
   font-family: 'Montserrat', sans-serif;
   color: #e6cdcd;
 }
