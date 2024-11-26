@@ -1,15 +1,21 @@
-window.addEventListener('load', () => {
-    const typingDemo = document.querySelector('.typing-demo');
-    const logo = document.getElementById('logo');
+window.addEventListener("load", () => {
+  const typingDemo = document.querySelector(".typing-demo");
+  const logo = document.getElementById("logo");
+  let animationPlayed = false; // Ajoutez un flag pour s'assurer que l'animation ne se joue qu'une fois
 
-    // Lorsque l'animation de texte est terminée
-    typingDemo.addEventListener('animationend', () => {
-        setTimeout(() => {
-            logo.classList.add('show-logo');
-        }, 500);
+  typingDemo.addEventListener("animationend", () => {
+    if (!animationPlayed) {
+      animationPlayed = true; // Marquez l'animation comme jouée
 
-        setTimeout(() => {
-            document.querySelector('.socials').classList.add('show-socials');
-        }, 1400);
-    });
+      // Ajoutez un délai pour afficher le logo
+      setTimeout(() => {
+        logo.classList.add("show-logo");
+      }, 500); // 0,5 seconde après la fin de l'animation typing
+
+      // Affichez les réseaux sociaux après l'animation du logo
+      setTimeout(() => {
+        document.querySelector(".socials").classList.add("show-socials");
+      }, 2000); // 1.5s après l'affichage du logo
+    }
+  });
 });
