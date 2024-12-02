@@ -14,7 +14,6 @@ body {
   align-items: center;
   flex-direction: column;
   height: 100vh;
-  font-family: 'Montserrat', sans-serif;
   color: #e6cdcd;
 }
 
@@ -22,16 +21,26 @@ body {
 #logo {
   opacity: 0;
   transform: translateY(-100%);
-  transition: opacity 1s ease 1.5s, transform 1s ease 1.5s;
-  margin-top: 30px;
+  /* Position de départ du logo */
 }
 
 #logo.show-logo {
-  opacity: 1;
-  transform: translateY(0);
-  /* Le logo va arriver à sa position d'origine */
+  animation: showLogo 1.5s ease forwards;
 }
 
+@keyframes showLogo {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Style du SVG */
 #logo-svg {
   width: 550px;
   height: 100px;
@@ -40,13 +49,12 @@ body {
   font-size: 4.5rem;
 }
 
-/* Wrapper pour le texte */
+/* Texte avec animation de saisie */
 .wrapper {
   display: grid;
   place-items: center;
 }
 
-/* Animation de texte */
 .typing-demo {
   margin: 35px auto 35px;
   width: 36ch;
@@ -58,11 +66,24 @@ body {
   font-size: 1.6rem;
 }
 
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Animation pour les réseaux sociaux */
 .socials {
   margin-top: 30px;
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 1s ease 1.5s, transform 1s ease 1.5s;
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 .socials.show-socials {
@@ -108,37 +129,7 @@ body {
   width: 3rem;
 }
 
-/* Animation de saisie pour le texte */
-@keyframes typing {
-  from {
-    width: 0;
-  }
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
-
-
-/* Ajout de l'animation du logo au départ */
-#logo.show-logo {
-  animation: showLogo 2s forwards;
-}
-
-@keyframes showLogo {
-  0% {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* Media query pour petits écrans */
 @media (max-width: 605px) {
   .typing-demo {
     font-size: 1rem;
@@ -147,8 +138,6 @@ body {
   #logo-svg {
     width: 350px;
     height: 100px;
-    display: block;
-    margin: 0 auto;
     font-size: 2.5em;
   }
 
