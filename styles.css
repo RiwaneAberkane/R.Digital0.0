@@ -133,6 +133,7 @@ body {
 @media (max-width: 605px) {
   .typing-demo {
     font-size: 1rem;
+    margin: 0;
   }
 
   #logo-svg {
